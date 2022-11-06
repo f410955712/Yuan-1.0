@@ -215,6 +215,7 @@ def main():
         print("Total time to used:", time.time() - startup_start)
         pool.close()
         print("total tokens: ",total_tokens )
+        print("preprocess data finished!")
 
 if __name__ == '__main__':
     main()

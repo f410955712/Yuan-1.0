@@ -1,10 +1,11 @@
 #!/bin/bash
 
 IMPL=cached
-python ../preprocess_data.py \
-       --input test_samples.json \
-       --vocab vocab.txt \
-       --dataset-impl ${IMPL} \
-       --output-prefix test_samples_${IMPL} \
+python /home/fengty/nlp/Yuan-1.0/src/tools/preprocess_data_cn.py \
+       --input /home/fengty/nlp/Yuan-1.0/src/data_fty/ \
+       --vocab /home/fengty/nlp/Yuan-1.0/src/ \
+       --dataset_impl ${IMPL} \
+       --output_prefix test_samples_${IMPL} \
+       --output_path /home/fengty/nlp/Yuan-1.0/src/megatron/data/test/data_asc \
        --workers 1 \
-       --log-interval 2
+       --log_interval 2
