@@ -2,7 +2,7 @@
 
 IMPL=cached
 python /home/fengty/nlp/Yuan-1.0/src/tools/preprocess_data_cn.py \
-       --input /home/fengty/nlp/Yuan-1.0/src/data_fty/ \
+       --input /home/fengty/nlp/Yuan-1.0/src/dataset/ \
        --vocab /home/fengty/nlp/Yuan-1.0/src/ \
        --dataset_impl ${IMPL} \
        --output_prefix test_samples_${IMPL} \
