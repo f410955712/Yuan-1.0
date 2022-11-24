@@ -1,9 +1,9 @@
 #! /bin/bash
 
-# this script is used to run my own gpt2 model
+# this script is used to run my own gpt2(345M) model
 
-CHECKPOINT_PATH=/home/fengty/nlp/Yuan-1.0/src/checkpoint
-DATA_PATH=/home/fengty/nlp/Yuan-1.0/src/megatron/data/test/data_asc/001.txt_document_context
+CHECKPOINT_PATH=/home/fengty/nlp_workspaces/pycharm_projects/Yuan-1.0/src/checkpoint
+DATA_PATH=/home/fengty/nlp_workspaces/pycharm_projects/Yuan-1.0/src/megatron/data/test/data_asc/001.txt_document_context
 
 GPT_ARGS="--num-layers 24 \
           --hidden-size 1024 \
@@ -16,7 +16,9 @@ GPT_ARGS="--num-layers 24 \
           --train-iters 500000 \
           --lr-decay-iters 320000 \
           --lr-decay-style cosine \
-          --vocab-file /home/fengty/nlp/Yuan-1.0/src/vocab.txt \
+          --tokenizer-type EncDecTokenizer \
+          --vocab-file /home/fengty/nlp_workspaces/pycharm_projects/Yuan-1.0/src/vocab.txt \
+          --merge-file /home/fengty/nlp_workspaces/pycharm_projects/Yuan-1.0/src/gpt2-merges.txt \
           --lr-warmup-fraction .01 \
           --fp16"
 
@@ -26,7 +28,7 @@ OUTPUT_ARGS="--log-interval 10 \
              --eval-iters 10 \
              --checkpoint-activations"
 
-python pretrain_gpt.py \
+python /home/fengty/nlp_workspaces/pycharm_projects/Yuan-1.0/src/pretrain_gpt.py \
        $GPT_ARGS \
        $OUTPUT_ARGS \
        --save $CHECKPOINT_PATH \
