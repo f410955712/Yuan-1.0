@@ -575,7 +575,8 @@ def get_token_stream(model, context_tokens):
 
     args = get_args()
     tokenizer = get_tokenizer()
-    context_tokens = context_tokens.tolist()
+    if(not isinstance(context_tokens,list)):
+        context_tokens = context_tokens.tolist()
     context_tokens, context_lengths = pad_batch(context_tokens,
                                                 tokenizer.eod, args)
 
