@@ -271,7 +271,7 @@ def _build_index_mappings(name, data_prefix, documents, sizes,
             # First compile and then import.
             from megatron.data import helpers
             assert doc_idx.dtype == np.int32
-            assert sizes.dtype == np.int64
+            assert sizes.dtype == np.int32
             sample_idx = helpers.build_sample_idx(sizes, doc_idx, seq_length,
                                                   num_epochs, tokens_per_epoch)
             # sample_idx = _build_sample_idx(sizes, doc_idx, seq_length,

@@ -27,6 +27,7 @@ from megatron.model import GPTModel
 from megatron.training import pretrain
 from megatron.utils import get_ltor_masks_and_position_ids
 from megatron.utils import average_losses_across_data_parallel_group
+import re
 
 def model_provider(pre_process=True, post_process=True):
     """Build the model."""
@@ -81,7 +82,16 @@ def loss_func(loss_mask, output_tensor):
     # Reduce loss for logging.
     averaged_loss = average_losses_across_data_parallel_group([loss])
 
+    wirte_loss_to_text(averaged_loss[0])
+
     return loss, {'lm loss': averaged_loss[0]}
+
+def wirte_loss_to_text(loss):
+    with open("loss.txt", "a") as file:
+        loss_str = str(loss)
+        start_idx = re.search('tensor\(', loss_str).span()[1]
+        end_idx = re.search(',', loss_str).span()[1]
+        file.write(loss_str[start_idx:end_idx] + "\n")
 
 
 def forward_step(data_iterator, model):

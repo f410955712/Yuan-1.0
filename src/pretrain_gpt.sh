@@ -3,7 +3,7 @@
 # this script is used to run my own gpt2(345M) model
 
 CHECKPOINT_PATH=/home/fengty/nlp_workspaces/pycharm_projects/Yuan-1.0/src/checkpoint
-DATA_PATH=/home/fengty/nlp_workspaces/pycharm_projects/Yuan-1.0/src/megatron/data/test/data_asc/001.txt_document_context
+DATA_PATH=/home/fengty/nlp_workspaces/pycharm_projects/Yuan-1.0/src/megatron/data/test/data_asc/002.txt_document_context
 
 GPT_ARGS="--num-layers 24 \
           --hidden-size 1024 \
@@ -13,7 +13,7 @@ GPT_ARGS="--num-layers 24 \
           --micro-batch-size 4 \
           --global-batch-size 8 \
           --lr 0.00015 \
-          --train-iters 500000 \
+          --train-iters 5000 \
           --lr-decay-iters 320000 \
           --lr-decay-style cosine \
           --tokenizer-type EncDecTokenizer \
